@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class User extends Model
+class Jobs extends Model
 {
     use HasFactory;
 
@@ -16,21 +16,9 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'profile_img',
-        'password',
-        'email_verified_at',
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
+        'title',
+        'salary',
+        'description',
     ];
 
     /**
@@ -40,11 +28,10 @@ class User extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'email_verified_at' => 'timestamp',
     ];
 
-    public function jobs(): HasMany
+    public function users(): HasMany
     {
-        return $this->hasMany(Jobs::class);
+        return $this->hasMany(User::class);
     }
-}
+};
