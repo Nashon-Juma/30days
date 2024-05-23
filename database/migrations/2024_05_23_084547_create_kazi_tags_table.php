@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jobs', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('salary');
-            $table->longText('description')->nullable();
-            $table->timestamps();
+        Schema::create('kazi_tags', function (Blueprint $table) {
+            $table->foreignId('kazi_id');
+            $table->foreignId('tag_id');
         });
     }
 
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jobs');
+        Schema::dropIfExists('kazi_tags');
     }
 };

@@ -43,8 +43,8 @@ class User extends Model
         'email_verified_at' => 'timestamp',
     ];
 
-    public function jobs(): HasMany
+    public function kazi(): HasMany
     {
-        return $this->hasMany(Jobs::class);
+        return $this->hasMany(Kazi::class);
     }
 }
