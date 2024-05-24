@@ -1,15 +1,10 @@
 <x-layout>
-    <x-slot:heading>
-        Home Page
-    </x-slot:heading>
-    @foreach($kazi as $kazi)
-    <ol>
-        <a href="kazi/{{ $kazi['id'] }}">
-            <br>
-            <li><strong>{{ $kazi['title'] }}</strong>: Pays {{ $kazi['salary']}} per year.</li>
-        </a>
-    </ol>
-
-    @endforeach
-
+    <section>
+        <x-sec-heading>Featured Jobs</x-sec-heading>
+            <div class="grid lg:grid-cols-3 gap-8">
+            <x-job-card />
+            <x-job-card />
+            <x-job-card />
+        </div>
+    </section>
 </x-layout>
